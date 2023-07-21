@@ -45,7 +45,6 @@ class MainActivity : ComponentActivity() {
                     // 통신에 성공했을 때
 
                     //Log.d("test_debug", response.toString()) // 오류 확인
-
                     //서버의 응답값 (일단은 post라서 return값이 없음)
                     //val postQ = response.body()
                     //dialog.setMessage("subject: " + postQ?.subject + "/ content : " + postQ?.content)
