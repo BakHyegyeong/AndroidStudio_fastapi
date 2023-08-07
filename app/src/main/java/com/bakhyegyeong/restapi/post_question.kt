@@ -1,5 +1,6 @@
 package com.bakhyegyeong.restapi
 
+import android.provider.ContactsContract
 import com.google.gson.annotations.SerializedName
 
 // DTO 모델 생성
