@@ -20,11 +20,29 @@
         android:inputType="text"
         android:text="게시판제목들" />
 
+    <TextView
+        android:id="@+id/detail_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="detail_subject" />
+
+    <TextView
+        android:id="@+id/detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="detail_content" />
+
     <Button
         android:id="@+id/list_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="목록 불러오기" />
+
+    <Button
+        android:id="@+id/detail_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="question 보기" />
 
 
 </LinearLayout>

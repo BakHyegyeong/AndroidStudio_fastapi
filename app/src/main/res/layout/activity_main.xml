@@ -30,8 +30,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입하기"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인하기" />
 
     <Button
         android:id="@+id/list_button"
@@ -39,6 +45,18 @@
         android:layout_height="wrap_content"
         android:text="리스트 확인하기"
         />
+
+    <TextView
+        android:id="@+id/login_tf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그아웃하기" />
 
 
 </LinearLayout>

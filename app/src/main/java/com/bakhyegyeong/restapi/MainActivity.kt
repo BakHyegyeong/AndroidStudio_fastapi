@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 
 
@@ -19,6 +20,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var login_tf: TextView
+    private lateinit var globalVariable: GlobalVariable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,9 +40,15 @@ class MainActivity : ComponentActivity() {
         // xml파일에서 각 요소들 호출(원래 자동으로 된다던데 ㅅㅂ)
         val sub : EditText = findViewById(R.id.question_subject)
         val con : EditText = findViewById(R.id.question_content)
+        login_tf  = findViewById(R.id.login_tf)
         val button : Button = findViewById(R.id.request_button)
         val cr_button : Button = findViewById(R.id.create_button)
         val li_button : Button = findViewById(R.id.list_button)
+        val lo_button : Button = findViewById(R.id.login_button)
+        val logout_button : Button = findViewById(R.id.logout_button)
+
+        // global 변수 호출
+        globalVariable = getApplication() as GlobalVariable
 
         cr_button.setOnClickListener {
             val intent = Intent(this@MainActivity, UserCreate::class.java)
@@ -50,6 +60,16 @@ class MainActivity : ComponentActivity() {
             startActivity(list)
         }
 
+        lo_button.setOnClickListener {
+            val intent = Intent(this@MainActivity, Login::class.java)
+            startActivity(intent)
+        }
+
+        logout_button.setOnClickListener {
+            globalVariable.access_token = ""
+            globalVariable.username = ""
+        }
+
 
         button.setOnClickListener {
 
@@ -59,7 +79,9 @@ class MainActivity : ComponentActivity() {
 
             // object 에서 아이콘 없는거 - Callback <> retrofit으로 되어있는 거 - ovridemethod나오면 onresponse, onFailure!!
             // 또는 Callback<>{ 안에서 우클릭 - generate - ovridemethod
-            postService.requestPost(postData).enqueue(object : Callback<ResponseBody> {
+
+            //token 앞에 Bearer 띄어쓰기 붙여줘야함.
+            postService.requestPost("Bearer "+ globalVariable.access_token,postData).enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     // 통신에 성공했을 때
 
@@ -81,9 +103,9 @@ class MainActivity : ComponentActivity() {
                             dialog.show()
                         }
                     }
+
+
                 }
-
-
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     //통신에 실패했을 때
@@ -97,6 +119,16 @@ class MainActivity : ComponentActivity() {
                 }
 
             })
+        }
+    }
+
+    // 페이지가 로딩될때마다 바뀜
+    override fun onResume() {
+        super.onResume()
+        if (globalVariable.access_token != "") {
+            login_tf.text = globalVariable.username + "님 환영합니다."
+        } else {
+            login_tf.text = "로그인을 해주세요."
         }
     }
 }
