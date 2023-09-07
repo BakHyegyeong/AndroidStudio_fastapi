@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import kotlinx.android.synthetic.main.activity_main.math_game_button
 
 
 import okhttp3.ResponseBody
@@ -68,6 +69,11 @@ class MainActivity : ComponentActivity() {
         logout_button.setOnClickListener {
             globalVariable.access_token = ""
             globalVariable.username = ""
+        }
+
+        math_game_button.setOnClickListener {
+            val intent = Intent(this@MainActivity, Unity_MathGame::class.java)
+            startActivity(intent)
         }
 
 
