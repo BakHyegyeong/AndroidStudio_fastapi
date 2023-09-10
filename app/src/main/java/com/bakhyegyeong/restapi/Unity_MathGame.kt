@@ -21,7 +21,7 @@ class Unity_MathGame : ComponentActivity() {
 
         val webSettings = web.settings
         webSettings.javaScriptEnabled = true        //자바스크립트 활성화!
-        //webSettings.domStorageEnabled = true      //쿠키같은 local 저장소
+        webSettings.domStorageEnabled = true      //쿠키같은 local 저장소
         web.loadUrl(url)
 
     }

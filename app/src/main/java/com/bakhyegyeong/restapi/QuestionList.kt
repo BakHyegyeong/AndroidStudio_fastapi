@@ -35,9 +35,10 @@ class QuestionList : ComponentActivity() {
 
         //val ex : Array<String> = arrayOf("tlqkf")
         //val list :ListView = findViewById(R.id.questionList)
+        val tag :String = "all"
         val page  = 0
         val size  = 5
-        val question_id = 1
+        val question_id = 5
 
         val button : Button = findViewById(R.id.list_button)
         val subject : TextView = findViewById(R.id.detail_subject)
@@ -48,7 +49,7 @@ class QuestionList : ComponentActivity() {
         val dialog = AlertDialog.Builder(this@QuestionList)
 
         button.setOnClickListener {
-            getService.requestQuestionList(page, size).enqueue(object : Callback<JsonObject>{
+            getService.requestQuestionList(tag,page, size).enqueue(object : Callback<JsonObject>{
                 override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
 
                     if(response.isSuccessful()){
@@ -61,6 +62,7 @@ class QuestionList : ComponentActivity() {
                         val result = response.body()
                         val total = result?.get("total")?.asInt
                         val list = result?.get("question_list")?.asJsonArray
+
 
                         // 배열 안의 값이 JsonElement형태로 있기 때문에 JsonObject로 다시 변환.
                         if (list != null){

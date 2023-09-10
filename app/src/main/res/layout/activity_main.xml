@@ -11,12 +11,45 @@
         android:hint="subject"
         android:textAlignment="center"/>
 
+    <RadioGroup
+        android:id = "@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_all"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="all" />
+
+        <RadioButton
+            android:id="@+id/radio_cook"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="cook" />
+
+        <RadioButton
+            android:id="@+id/radio_happy"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="happy" />
+
+        <RadioButton
+            android:id="@+id/radio_book"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="book" />
+    </RadioGroup>
+
     <EditText
         android:id="@+id/question_content"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:hint="content"
         android:textAlignment="center"/>
+
+
 
     <Button
         android:id="@+id/request_button"
