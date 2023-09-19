@@ -5,4 +5,6 @@
     <string name="title_activity_question_list">QuestionList</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_unity_math_game">Unity_MathGame</string>
+    <string name="title_activity_unity_array_game">Unity_ArrayGame</string>
+    <string name="title_activity_unity_card_game">Unity_CardGame</string>
 </resources>

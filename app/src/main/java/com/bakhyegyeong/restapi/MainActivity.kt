@@ -11,6 +11,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import kotlinx.android.synthetic.main.activity_main.array_game_button
+import kotlinx.android.synthetic.main.activity_main.card_game_button
 import kotlinx.android.synthetic.main.activity_main.math_game_button
 
 
@@ -86,6 +88,16 @@ class MainActivity : ComponentActivity() {
 
         math_game_button.setOnClickListener {
             val intent = Intent(this@MainActivity, Unity_MathGame::class.java)
+            startActivity(intent)
+        }
+
+        array_game_button.setOnClickListener{
+            val intent = Intent(this@MainActivity, Unity_ArrayGame::class.java)
+            startActivity(intent)
+        }
+
+        card_game_button.setOnClickListener {
+            val intent = Intent(this@MainActivity, Unity_CardGame::class.java)
             startActivity(intent)
         }
 

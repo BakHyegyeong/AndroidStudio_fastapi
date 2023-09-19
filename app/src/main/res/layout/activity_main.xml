@@ -89,22 +89,36 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
+    <Button
+        android:id="@+id/list_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="리스트 확인하기" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/list_button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="리스트 확인하기" />
+
 
         <Button
             android:id="@+id/math_game_button"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text = "math game"/>
+
+        <Button
+            android:id="@+id/array_game_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text = "array game"/>
+
+        <Button
+            android:id="@+id/card_game_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text = "card game"/>
     </LinearLayout>
 
 
