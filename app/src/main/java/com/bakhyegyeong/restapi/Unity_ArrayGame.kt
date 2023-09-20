@@ -16,12 +16,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.bakhyegyeong.restapi.ui.theme.RestapiTheme
 
 class Unity_ArrayGame : ComponentActivity() {
+
+    private lateinit var globalVariable: GlobalVariable
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_arraygame)
 
+        // global 변수 호출
+        globalVariable = getApplication() as GlobalVariable
+
         val web: WebView = findViewById(R.id.array_game_view)
-        val url : String = "http://43.200.84.39:8000/unity_array"
+        val url : String =  globalVariable.api_url + "unity_array"
 
 
         web.webChromeClient = WebChromeClient()     //크롬으로!

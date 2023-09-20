@@ -21,12 +21,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class QuestionList : ComponentActivity() {
+
+    private lateinit var globalVariable: GlobalVariable
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question_list)
 
+        // global 변수 호출
+        globalVariable = getApplication() as GlobalVariable
+
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://43.200.84.39:8000/")
+            .baseUrl(globalVariable.api_url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

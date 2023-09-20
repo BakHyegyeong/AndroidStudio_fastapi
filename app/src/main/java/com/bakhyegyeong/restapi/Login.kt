@@ -21,7 +21,7 @@ class Login : ComponentActivity() {
         setContentView(R.layout.activity_login)
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://43.200.84.39:8000/")
+            .baseUrl("http://43.200.84.39/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

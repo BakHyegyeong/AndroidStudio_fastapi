@@ -35,10 +35,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // global 변수 호출
+        globalVariable = getApplication() as GlobalVariable
 
         // retrofit 객체 생성
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://43.200.84.39:8000/")
+            .baseUrl(globalVariable.api_url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -58,8 +60,7 @@ class MainActivity : ComponentActivity() {
         val lo_button : Button = findViewById(R.id.login_button)
         val logout_button : Button = findViewById(R.id.logout_button)
 
-        // global 변수 호출
-        globalVariable = getApplication() as GlobalVariable
+
 
         cr_button.setOnClickListener {
             val intent = Intent(this@MainActivity, UserCreate::class.java)

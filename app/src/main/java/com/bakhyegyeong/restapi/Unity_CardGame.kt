@@ -16,12 +16,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.bakhyegyeong.restapi.ui.theme.RestapiTheme
 
 class Unity_CardGame : ComponentActivity() {
+
+    // lateinit : 나중에 초기화할 것이다. -> 나중에 값을 할당할테니 안심해라~
+    private lateinit var globalVariable: GlobalVariable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cardgame)
 
+        globalVariable = getApplication() as GlobalVariable
+
         val web: WebView = findViewById(R.id.card_game_view)
-        val url : String = "http://43.200.84.39:8000/unity_card"
+        val url : String = globalVariable.api_url + "unity_card"
 
         web.webChromeClient = WebChromeClient()     //크롬으로!
         web.webViewClient = WebViewClient()         //현재 창에서! 자바에서는 따로 함수 만들었어야했는데 코틀린에서는 그냥~
