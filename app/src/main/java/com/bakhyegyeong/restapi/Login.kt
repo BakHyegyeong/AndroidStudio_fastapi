@@ -20,8 +20,12 @@ class Login : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        
+        // global 변수 호출
+        globalVariable = getApplication() as GlobalVariable
+
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://43.200.84.39/")
+            .baseUrl(globalVariable.api_url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
